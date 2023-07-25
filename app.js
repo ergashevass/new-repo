@@ -5,6 +5,7 @@ let box2 = document.querySelector(".box2");
 let box3 = document.querySelector(".box3");
 let button1 = document.querySelector(".add1");
 let button2 = document.querySelector(".add2");
+
 function init() {
   let buttons = document.createElement("div");
   buttons.classList.add("buttons");
@@ -65,6 +66,32 @@ function init() {
       donee.innerText = `New Done`;
     }
   });
+
+  function hadnle_drop(e){
+    e.dataTransfer.setData("text", e.target.class)
+  }
+
+  todo.addEventListener("dragstart", hadnle_drop);
+
 }
 
 init();
+
+// let todo = document.querySelector(".todo-1");
+// let box1 = document.querySelector(".box1");
+// let box2 = document.querySelector(".box2");
+
+// for (todo of todo) {
+//   todo.addEventListener("dragstart", function (e) {
+//     let selected = e.target;
+
+//     box2.addEventListener("dragover", function (e) {
+//       e.preventDefault();
+//     });
+
+//     box2.addEventListener("drop", function (e) {
+//       box2.appendChild(selected);
+//       selected = null;
+//     });
+//   });
+// }
